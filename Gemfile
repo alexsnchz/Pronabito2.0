@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Administration framework for Ruby on Rails applications.
 gem 'activeadmin', '~> 1.0.0.pre1'
 
+# Flexible authentication solution for Rails with Warden.
+gem 'devise', '~> 3.5.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
