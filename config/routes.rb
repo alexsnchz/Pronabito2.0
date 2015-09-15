@@ -16,6 +16,16 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  devise_for :users,
+      path_names: {sign_in: 'login', sign_out: 'logout'},
+      controllers: {confirmations: 'users/confirmations',
+                    passwords: 'users/passwords',
+                    registrations: 'users/registrations',
+                    sessions: 'users/sessions',
+                    unlocks: 'users/unlocks'},
+      path: '/'
+
+
   # Example resource route with options:
   #   resources :products do
   #     member do

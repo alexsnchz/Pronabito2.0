@@ -1,0 +1,188 @@
+<h2>Registro</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :email %><br/>
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br/>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :curp %><br/>
+      <%= f.text_field :curp, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :tipo_beca %><br/>
+      <%= f.select :tipo_beca, options_for_select(['Nueva Beca', 'Renovación']) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :institucion %><br/>
+      <%= f.text_field :institucion, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :primer_apellido %><br/>
+      <%= f.text_field :primer_apellido, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :segundo_apellido %><br/>
+      <%= f.text_field :segundo_apellido, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :nombre %><br/>
+      <%= f.text_field :nombre, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :genero %><br/>
+      <%= f.select :genero, [['Masculino', 'M'], ['Femenino', 'F']] %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :nacionalidad %><br/>
+      <%= f.select :nacionalidad, [['Mexicano por nacimiento', 'nacimiento'],
+                                        ['Mexicano por naturalización', 'naturalizado']]  %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Fecha de nacimiento' %></br>
+      <%= f.label :dia %></br>
+      <%= f.number_field :dia %></br>
+      <%= f.label :mes %></br>
+      <%= f.number_field :mes %></br>
+      <%= f.label :anio %></br>
+      <%= f.number_field :anio %>
+    </div>
+
+    <div class="field">
+      <%= f.label :edad %></br>
+      <%= f.number_field :edad %>
+    </div>
+
+    <div class="field">
+      <%= f.label :poblacion %>
+      <%= f.text_field :poblacion %>
+    </div>
+
+    <div class="field">
+      <%= f.label :municipio %></br>
+      <%= f.text_field :municipio %>
+      </div>
+
+    <div class="field">
+      <%= f.label :estado %></br>
+      <%= f.text_field :estado %>
+      </div>
+
+    <div class="field">
+      <%= f.label :estado_civil %></br>
+      <%= f.select :estado_civil, [['Soltero(a)','S'], ['Casado(a)', 'C'],
+                                        ['Divorciado(a)', 'D'], ['Viudo(a)', 'V'], ['Union Libre', 'U']] %>
+      </div>
+
+    <div class="field">
+      <%= f.label :procedencia %></br>
+      <%= f.select :procedencia, [['Urbana', 1], ['Rural', 2], ['Urbano Marginal', 3]] %>
+      </div>
+
+    <div class="field">
+      <%= f.label :oportunidades %>
+      <%= f.text_field :oportunidades %>
+    </div>
+
+    <div class="field">
+      <%= f.label :etnia %>
+      <%= f.text_field :etnia %>
+    </div>
+
+    <div class="field">
+        <%= f.label :discapacidad %>
+        <%= f.text_field :discapacidad %>
+    </div>
+
+    <div class="field">
+        <%= f.label :local_foraneo %>
+        <%= f.select :local_foraneo, options_for_select(['Local', 'Foraneo']) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :carrera %>
+      <%= f.select :carrera, [[]] %>
+    </div>
+
+    <div class="field">
+      <%= f.label :programa %>
+      <%= f.select :programa, [['Licenciatura', 'Lic']] %>
+    </div>
+
+    <div class="field">
+      <%= f.label :periodo %>
+      <%= f.select :periodo, [['Tetramestral', 'T'], ['Semestral', 'S'], ['Anual', 'A']] %>
+    </div>
+
+    <div class="field">
+      <%= f.label :periodo_curso %>
+      <%= f.number_field :periodo_curso %>
+    </div>
+
+    <div class="field">
+      <%= f.label :anio_curso %>
+      <%= f.number_field :anio_curso %>
+    </div>
+
+    <div class="field">
+      <%= f.label :monto %>
+      <%= f.number_field :monto %>
+    </div>
+
+    <div class="field">
+      <%= f.label :prom_bach %>
+      <%= f.number_field :prom_bach %>
+    </div>
+
+    <div class="field">
+      <%= f.label :prom_carrera %>
+      <%= f.number_field :prom_carrera %>
+    </div>
+
+    <div class="field">
+      <%= f.label :prom_ciclo %>
+      <%= f.number_field :prom_ciclo %>
+    </div>
+
+    <div class="field">
+      <%= f.label :area_conocimiento %>
+      <%= f.select :area_conocimiento, [['Agropecuarias', 1], ['De la salud', 2], ['Naturales y exactas', 3],
+                                        ['Sociales y administrativas', 4], ['Educación y humanidades', 5],
+                                        ['Ingeniería y tecnología', 6]] %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ingreso_hogar %>
+      <%= f.number_field :ingreso_hogar %>
+    </div>
+
+    <div>
+      <%= f.label :pers_hogar %>
+      <%= f.number_field :pers_hogar %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+<% end %>
+
+<%= render "users/shared/links" %>

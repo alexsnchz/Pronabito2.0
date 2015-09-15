@@ -49,3 +49,11 @@ group :development, :test do
   gem 'spring'
 end
 
+group :development do
+  # Better error page for Rack apps.
+  gem 'better_errors', '>= 2.1.1'
+
+  # Code metric tool for rails projects.
+  gem 'rails_best_practices', '>= 1.15.7'
+end
+
