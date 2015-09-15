@@ -13,3 +13,24 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore IDE's settings.
+/.idea
+/nbproject
+
+# Ignore some OS files.
+*.swp
+*~
+.DS_Store
+
+# Ignore SASS cache files.
+.sass-cache
+
+# Ignore auto generated directories on public.
+/public/**
+
+# Ignore rails best practices html.
+rails_best_practices_output.html
+
+# Ignore application configuration.
+/config/application.yml
