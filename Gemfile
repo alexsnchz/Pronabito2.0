@@ -29,6 +29,9 @@ gem 'activeadmin', '~> 1.0.0.pre1'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise', '~> 3.5.1'
 
+# Ruby lib for reading/writing/modifying .xlsx and .xlsm files
+gem 'rubyXL', '~> 3.3.13'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -40,7 +43,7 @@ gem 'devise', '~> 3.5.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  # gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

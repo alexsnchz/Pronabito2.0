@@ -1,9 +1,10 @@
 ActiveAdmin.register User do
-  permit_params :curp, :tipo_beca, :institucion, :primer_apellido, :segundo_apellido, :nombre, :genero, :nacionalidad,
-                :dia, :mes, :anio, :edad, :poblacion, :municipio, :estado, :estado_civil, :procedencia, :oportunidades,
-                :etnia, :discapacidad, :local_foraneo, :carrera, :programa, :periodo, :periodo_curso, :anio_curso,
-                :monto, :prom_bach, :prom_carrera, :prom_ciclo, :area_conocimiento, :ingreso_hogar, :pers_hogar
-  menu parent: 'Acceso', priority: 2
+  permit_params :email, :password, :password_confirmation, :curp, :tipo_beca, :institucion, :primer_apellido,
+                :segundo_apellido, :nombre, :genero, :nacionalidad, :dia, :mes, :anio, :edad, :poblacion,
+                :municipio, :estado, :estado_civil, :procedencia, :oportunidades, :etnia, :discapacidad,
+                :local_foraneo, :carrera, :programa, :periodo, :periodo_curso, :anio_curso, :monto, :prom_bach,
+                :prom_carrera, :prom_ciclo, :area_conocimiento, :ingreso_hogar, :pers_hogarm, :matricula
+  menu parent: 'Registros', priority: 2, label: 'Becarios'
 
   form builder: ActiveAdmin::FormBuilder do |f|
     f.inputs do
@@ -50,7 +51,39 @@ ActiveAdmin.register User do
   index do
     selectable_column
     id_column
+    column :matricula
     column :curp
+    column :tipo_beca
+    column :primer_apellido
+    column :segundo_apellido
+    column :nombre
+    column :genero
+    column :nacionalidad
+    column :dia
+    column :mes
+    column :anio
+    column :edad
+    column :poblacion
+    column :municipio
+    column :estado
+    column :estado_civil
+    column :procedencia
+    column :oportunidades
+    column :etnia
+    column :discapacidad
+    column :local_foraneo
+    column :carrera
+    column :periodo_curso
+    column :prom_carrera
+    column :prom_ciclo
+    column :ingreso_hogar
+    column :pers_hogar
+    actions
+  end
+
+  csv do
+    column :id
+    column :matricula
     column :tipo_beca
     column :institucion
     column :primer_apellido
@@ -84,6 +117,6 @@ ActiveAdmin.register User do
     column :area_conocimiento
     column :ingreso_hogar
     column :pers_hogar
-    actions
   end
+  filter :id
 end

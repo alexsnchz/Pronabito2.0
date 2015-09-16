@@ -11,8 +11,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(sign_up_params)
     respond_to do |format|
+      excel
       if @user.save
-        format.html {redirect_to root}
+        format.html {redirect_to edit_user_registration_url}
         format.json
       else
         format.html {render :new}
@@ -49,11 +50,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def sign_up_params
-    params.require(:user).permit(:curp, :tipo_beca, :institucion, :primer_apellido, :segundo_apellido, :nombre,
-                                 :genero, :nacionalidad, :dia, :mes, :anio, :edad, :poblacion, :municipio, :estado,
-                                 :estado_civil, :procedencia, :oportunidades, :etnia, :discapacidad, :local_foraneo,
-                                 :carrera, :programa, :periodo, :periodo_curso, :anio_curso, :monto, :prom_bach,
-                                 :prom_carrera, :prom_ciclo, :area_conocimiento, :ingreso_hogar, :pers_hogar)
+    params.require(:user).permit(:email, :password, :password_confirmation, :curp, :tipo_beca, :institucion, :primer_apellido,
+                                 :segundo_apellido, :nombre, :genero, :nacionalidad, :dia, :mes, :anio, :edad, :poblacion,
+                                 :municipio, :estado, :estado_civil, :procedencia, :oportunidades, :etnia, :discapacidad,
+                                 :local_foraneo, :carrera, :programa, :periodo, :periodo_curso, :anio_curso, :monto, :prom_bach,
+                                 :prom_carrera, :prom_ciclo, :area_conocimiento, :ingreso_hogar, :pers_hogar, :matricula)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -70,4 +71,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def excel
+    workbook = RubyXL::Parser.parse('public/file.xlsx')
+    worksheet = workbook[0]
+    worksheet[0][0].change_contents('random works! :D')
+    workbook.write('public/cambio.xlsx')
+  end
 end
