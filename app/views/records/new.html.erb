@@ -1,0 +1,105 @@
+<h2>Registro para beca</h2>
+
+<%= form_for @record do |f| %>
+    <div class="field">
+      <%= f.label :matricula %></br>
+      <%= f.text_field :matricula, disabled: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :primer_apellido %><br/>
+      <%= f.text_field :primer_apellido, autocomplete: 'off' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :segundo_apellido %><br/>
+      <%= f.text_field :segundo_apellido, autocomplete: 'off' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :nombre %><br/>
+      <%= f.text_field :nombre, autocomplete: 'off' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :genero %><br/>
+      <%= f.select :genero, [['Masculino', 'M'], ['Femenino', 'F']] %>
+    </div>
+
+    <div class="field">
+      <%= f.label :nacionalidad %><br/>
+      <%= f.select :nacionalidad, [['Mexicano por nacimiento', 'nacimiento'],
+                                   ['Mexicano por naturalización', 'naturalizado']] %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Fecha de nacimiento' %></br>
+      <%= f.label :dia %></br>
+      <%= f.number_field :dia %></br>
+      <%= f.label :mes %></br>
+      <%= f.number_field :mes %></br>
+      <%= f.label :año %></br>
+      <%= f.number_field :año %>
+    </div>
+
+    <div class="field">
+      <%= f.label :edad %></br>
+      <%= f.number_field :edad, autocomplete: 'off' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :poblacion %>
+      <%= f.text_field :poblacion, autocomplete: 'off' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :municipio %></br>
+      <%= f.text_field :municipio, autocomplete: 'off' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :estado %></br>
+      <%= f.text_field :estado, autocomplete: 'off' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :estado_civil %></br>
+      <%= f.select :estado_civil, [['Soltero(a)', 'S'], ['Casado(a)', 'C'],
+                                   ['Divorciado(a)', 'D'], ['Viudo(a)', 'V'], ['Union Libre', 'U']] %>
+    </div>
+
+    <div class="field">
+      <%= f.label :procedencia %></br>
+      <%= f.select :procedencia, [['Urbana', 1], ['Rural', 2], ['Urbano Marginal', 3]] %>
+    </div>
+
+    <div class="field">
+      <%= f.label :oportunidades %>
+      <%= f.text_field :oportunidades, autocomplete: 'off' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :etnia %>
+      <%= f.text_field :etnia, autocomplete: 'off' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :discapacidad %>
+      <%= f.text_field :discapacidad, autocomplete: 'off' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :local_foraneo %>
+      <%= f.select :local_foraneo, options_for_select(['Local', 'Foraneo']) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :carrera %>
+      <%= f.select :carrera, [[]] %>
+    </div>
+
+    <div class='actions'>
+        <%= f.submit 'Enviar' %>
+    </div>
+
+<% end %>

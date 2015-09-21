@@ -32,6 +32,9 @@ gem 'devise', '~> 3.5.1'
 # Ruby lib for reading/writing/modifying .xlsx and .xlsm files
 gem 'rubyXL', '~> 3.3.13'
 
+# Font-Awesome Sass gem for use in Ruby/Rails projects
+gem 'font-awesome-sass', '~> 4.4.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

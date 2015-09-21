@@ -1,49 +1,16 @@
-ActiveAdmin.register User do
-  permit_params :email, :password, :password_confirmation, :curp, :tipo_beca, :institucion, :primer_apellido,
+ActiveAdmin.register Record do
+
+  permit_params :matricula, :curp, :tipo_beca, :institucion, :primer_apellido,
                 :segundo_apellido, :nombre, :genero, :nacionalidad, :dia, :mes, :anio, :edad, :poblacion,
                 :municipio, :estado, :estado_civil, :procedencia, :oportunidades, :etnia, :discapacidad,
                 :local_foraneo, :carrera, :programa, :periodo, :periodo_curso, :anio_curso, :monto, :prom_bach,
-                :prom_carrera, :prom_ciclo, :area_conocimiento, :ingreso_hogar, :pers_hogarm, :matricula
-  menu parent: 'Registros', priority: 2, label: 'Becarios'
+                :prom_carrera, :prom_ciclo, :area_conocimiento, :ingreso_hogar, :pers_hogar
+  menu parent: 'Becarios', priority: 2, label: 'Registros'
 
   form builder: ActiveAdmin::FormBuilder do |f|
     f.inputs do
-      f.input :email
-      f.input :password
-      f.input :password_confirmation
+      f.input :matricula
       f.input :curp
-      f.input :tipo_beca
-      f.input :institucion
-      f.input :primer_apellido
-      f.input :segundo_apellido
-      f.input :nombre
-      f.input :genero
-      f.input :nacionalidad
-      f.input :dia
-      f.input :mes
-      f.input :anio
-      f.input :edad
-      f.input :poblacion
-      f.input :municipio
-      f.input :estado
-      f.input :estado_civil
-      f.input :procedencia
-      f.input :oportunidades
-      f.input :etnia
-      f.input :discapacidad
-      f.input :local_foraneo
-      f.input :carrera
-      f.input :programa
-      f.input :periodo
-      f.input :periodo_curso
-      f.input :anio_curso
-      f.input :monto
-      f.input :prom_bach
-      f.input :prom_carrera
-      f.input :prom_ciclo
-      f.input :area_conocimiento
-      f.input :ingreso_hogar
-      f.input :pers_hogar
     end
     f.submit
   end
@@ -61,7 +28,7 @@ ActiveAdmin.register User do
     column :nacionalidad
     column :dia
     column :mes
-    column :anio
+    column :año
     column :edad
     column :poblacion
     column :municipio
@@ -118,5 +85,6 @@ ActiveAdmin.register User do
     column :ingreso_hogar
     column :pers_hogar
   end
-  filter :id
+
+  filter :matricula
 end

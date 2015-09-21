@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     respond_to do |format|
       excel
       if @user.save
-        format.html {redirect_to edit_user_registration_url}
+        format.html {redirect_to authenticated_user_path}
         format.json
       else
         format.html {render :new}
@@ -50,11 +50,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def sign_up_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :curp, :tipo_beca, :institucion, :primer_apellido,
-                                 :segundo_apellido, :nombre, :genero, :nacionalidad, :dia, :mes, :anio, :edad, :poblacion,
-                                 :municipio, :estado, :estado_civil, :procedencia, :oportunidades, :etnia, :discapacidad,
-                                 :local_foraneo, :carrera, :programa, :periodo, :periodo_curso, :anio_curso, :monto, :prom_bach,
-                                 :prom_carrera, :prom_ciclo, :area_conocimiento, :ingreso_hogar, :pers_hogar, :matricula)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
   # If you have extra params to permit, append them to the sanitizer.

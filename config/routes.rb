@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :records
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
@@ -24,6 +25,21 @@ Rails.application.routes.draw do
                     sessions: 'users/sessions',
                     unlocks: 'users/unlocks'},
       path: '/'
+
+  devise_scope :user do
+    authenticated :user do
+      root 'home#index', as: :authenticated_user
+    end
+
+    unauthenticated :user do
+      root 'users/sessions#new', as: :unauthenticated_user
+    end
+
+    authenticate :user do
+      get 'users/edit', to: 'users/registrations#edit', as: :edit_profile
+      match 'users', to: 'users/registrations#update', as: :update_profile, via: [:patch, :put]
+    end
+  end
 
 
   # Example resource route with options:
